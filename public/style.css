@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Noto+Serif:ital,wght@0,400;1,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Serif', serif;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Amplop Animasi */
+.envelope-wrapper {
+  perspective: 1000px;
+  animation: slideUp 1.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.envelope {
+  width: 350px;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.envelope .body {
+  width: 100%;
+  height: 100%;
+  background: #e8d5c4;
+  position: relative;
+  border: 2px solid #b8956a;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.envelope .body::before,
+.envelope .body::after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+}
+
+.envelope .body::before {
+  top: 0;
+  left: 0;
+  border-width: 0 175px 125px 175px;
+  border-color: transparent transparent #d4c4b0 transparent;
+}
+
+.envelope .flap {
+  width: 0;
+  height: 0;
+  border-left: 175px solid transparent;
+  border-right: 175px solid transparent;
+  border-top: 125px solid #c9b8a3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top;
+  transition: transform 0.5s;
+  z-index: 10;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.envelope:hover .flap {
+  transform: rotateX(-20deg);
+}
+
+.letter-preview {
+  width: 90%;
+  height: 70%;
+  background: #f9f5f0;
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  border: 1px solid #d4c4b0;
+}
+
+/* Paper Effect */
+.paper {
+  background: #f9f5f0;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  position: relative;
+  animation: fadeIn 0.5s;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(200,180,150,0.1) 31px,
+      rgba(200,180,150,0.1) 32px
+    );
+}
+
+.paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(139,115,85,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139,115,85,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Code Section */
+.code-section {
+  text-align: center;
+}
+
+.code-section h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5em;
+  color: #8b7355;
+  margin-bottom: 10px;
+}
+
+.code-section p {
+  color: #a0826d;
+  margin-bottom: 20px;
+}
+
+#code-input {
+  width: 200px;
+  padding: 15px;
+  font-size: 1.5em;
+  text-align: center;
+  border: 2px solid #d4c4b0;
+  border-radius: 5px;
+  background: #fff;
+  font-family: 'Noto Serif', serif;
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+}
+
+#unlock-btn {
+  padding: 12px 40px;
+  font-size: 1.1em;
+  background: #c9b8a3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Noto Serif', serif;
+  transition: background 0.3s;
+}
+
+#unlock-btn:hover {
+  background: #b8956a;
+}
+
+.error-msg {
+  color: #c0392b;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Letter Section */
+.letter-paper {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.letter-header {
+  text-align: right;
+  margin-bottom: 30px;
+  font-style: italic;
+  color: #8b7355;
+}
+
+.letter-header .date {
+  font-size: 0.9em;
+}
+
+.letter-header .dear {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8em;
+  margin-top: 10px;
+  color: #a0826d;
+}
+
+.letter-content {
+  line-height: 2;
+  color: #5a4a3a;
+  font-size: 1.1em;
+  text-align: justify;
+  white-space: pre-wrap;
+  animation: typewriter 2s steps(40);
+}
+
+.letter-footer {
+  margin-top: 40px;
+  text-align: right;
+  font-style: italic;
+  color: #8b7355;
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
+  margin-top: 10px;
+  color: #a0826d;
+}
+
+@media (max-width: 600px) {
+  .envelope {
+    width: 280px;
+    height: 200px;
+  }
+  
+  .envelope .body::before {
+    border-width: 0 140px 100px 140px;
+  }
+  
+  .envelope .flap {
+    border-left-width: 140px;
+    border-right-width: 140px;
+    border-top-width: 100px;
+  }
+  
+  .paper {
+    padding: 25px;
+  }
+  
+  .letter-content {
+    font-size: 1em;
+  }
+
+  .music-fab {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .music-toggle {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* FAB Music Control */
+.music-fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  animation: fadeIn 0.5s;
+}
+
+.music-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9b8a3 0%, #b8956a 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.music-toggle:active {
+  transform: scale(0.95);
+}
+
+.music-icon {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+}
+
+.music-icon.hidden {
+  display: none;
+}

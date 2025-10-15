@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surat Untukmu ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="envelope-wrapper" class="envelope-wrapper">
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="body"></div>
+        <div class="letter-preview"></div>
+      </div>
+    </div>
+
+    <div id="code-section" class="code-section hidden">
+      <div class="paper">
+        <h2>Masukkan Kode Rahasia</h2>
+        <p>Tanggal spesial kita (DDMM)</p>
+        <input type="text" id="code-input" maxlength="4" placeholder="____">
+        <button id="unlock-btn">Buka Surat</button>
+        <p id="error-msg" class="error-msg"></p>
+      </div>
+    </div>
+
+    <div id="letter-section" class="letter-section hidden">
+      <div class="paper letter-paper">
+        <div class="letter-header">
+          <p class="date">Keajaiban 11 September</p>
+          <p class="dear">Untuk Cintaku, Leli Andriyani</p>
+        </div>
+        <div id="letter-content" class="letter-content"></div>
+        <div class="letter-footer">
+          <p>Dengan Cinta,</p>
+          <p class="signature">Mr D</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="music-fab" class="music-fab hidden">
+      <button id="music-toggle" class="music-toggle">
+        <svg id="play-icon" class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <svg id="pause-icon" class="music-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="6" y="4" width="4" height="16"></rect>
+          <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>
+      </button>
+    </div>
+
+    <audio id="background-music" loop>
+      <source src="music/soundtrack.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
